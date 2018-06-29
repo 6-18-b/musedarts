@@ -1,6 +1,6 @@
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { firestoreConnect, getVal } from 'react-redux-firebase'
+import { firestoreConnect, getVal as get } from 'react-redux-firebase'
 import { spinnerWhileLoading } from 'utils/components'
 import { UserIsAuthenticated } from 'utils/router'
 
