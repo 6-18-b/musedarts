@@ -1,0 +1,41 @@
+{
+  "projects": {
+    "default": "mused-1111",
+    "master": "mused-1111",
+    "prod": "mused-1111"
+  },
+  "ci": {
+    "createConfig": {
+      "master": {
+        "env": "production",
+        "firebase": {
+          "apiKey": "AIzaSyCY_VC2xu33yHj9ONapPtCEQ1w1cHL_DNM",
+          "authDomain": "mused-1111.firebaseapp.com",
+          "databaseURL": "https://mused-1111.firebaseio.com",
+          "projectId": "mused-1111",
+          "storageBucket": "mused-1111.appspot.com"
+        },
+        "reduxFirebase": {
+          "userProfile": "users",
+          "enableLogging": false,
+          "updateProfileOnLogin": false
+        }
+      },
+      "prod": {
+        "env": "production",
+        "firebase": {
+          "apiKey": "AIzaSyCY_VC2xu33yHj9ONapPtCEQ1w1cHL_DNM",
+          "authDomain": "mused-1111.firebaseapp.com",
+          "databaseURL": "https://mused-1111.firebaseio.com",
+          "projectId": "mused-1111",
+          "storageBucket": "mused-1111.appspot.com"
+        },
+        "reduxFirebase": {
+          "userProfile": "users",
+          "enableLogging": false,
+          "updateProfileOnLogin": false
+        }
+      }
+    }
+  }
+}
