@@ -16,7 +16,7 @@
     "test": "cross-env NODE_ENV=test karma start build/karma.config",
     "test:watch": "npm test -- --watch",
     "lint": "eslint src functions server build project.config.js tests",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix":  "npm run lint -- --fix" ,
     "functions:start": "npm run start --prefix functions",
     "functions:build": "npm run build --prefix functions",
     "functions:test": "npm run test --prefix functions",

@@ -16,14 +16,14 @@ globals:
   __TEST__: false
 
 rules:
-  semi: [2, 'never']
+  semi: [2, 'always']
   no-console: 'error'
   jsx-quotes: ['error', 'prefer-double']
   no-return-await: 2
   prettier/prettier: ['error', {
     singleQuote: true,
     trailingComma: 'none',
-    semi: false,
+    semi: true,
     bracketSpacing: true,
     jsxBracketSameLine: true,
     printWidth: 80,

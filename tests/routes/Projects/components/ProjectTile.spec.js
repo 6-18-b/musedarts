@@ -1,9 +1,9 @@
-import React from 'react'
-import ProjectTile from 'routes/Projects/components/ProjectTile'
-import { shallow } from 'enzyme'
+import React from 'react';
+import ProjectTile from 'routes/Projects/components/ProjectTile';
+import { shallow } from 'enzyme';
 
 describe('(Component) ProjectTile', () => {
-  let _component
+  let _component;
 
   beforeEach(() => {
     _component = shallow(
@@ -11,16 +11,16 @@ describe('(Component) ProjectTile', () => {
         project={{ createdBy: { displayName: 'user' }, name: 'test' }}
         onSelect={() => console.log('project tile clicked')} // eslint-disable-line no-console
       />
-    )
-  })
+    );
+  });
 
   it('Renders', () => {
-    const wrapper = _component.find('div')
-    expect(wrapper).to.exist
-  })
+    const wrapper = _component.find('div');
+    expect(wrapper).to.exist;
+  });
 
   it('Renders description', () => {
-    const welcome = _component.find('h2')
-    expect(welcome).to.exist
-  })
-})
+    const welcome = _component.find('h2');
+    expect(welcome).to.exist;
+  });
+});

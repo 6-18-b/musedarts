@@ -1,26 +1,26 @@
-const firebasemock = require('firebase-mock')
-let mockauth = new firebasemock.MockFirebase()
-let mockdatabase = new firebasemock.MockFirebase()
-let mockfirestore = new firebasemock.MockFirestore()
+const firebasemock = require('firebase-mock');
+let mockauth = new firebasemock.MockFirebase();
+let mockdatabase = new firebasemock.MockFirebase();
+let mockfirestore = new firebasemock.MockFirestore();
 let mocksdk = firebasemock.MockFirebaseSdk(
   function() {
-    return mockdatabase
+    return mockdatabase;
   },
   function() {
-    return mockauth
+    return mockauth;
   },
   function() {
-    return mockfirestore
+    return mockfirestore;
   }
-)
+);
 
-let mockapp = mocksdk.initializeApp()
+let mockapp = mocksdk.initializeApp();
 
 describe('indexUser Cloud Function', () => {
-  let myFunctions
-  let configStub
-  let adminInitStub
-  let functions
+  let myFunctions;
+  let configStub;
+  let adminInitStub;
+  let functions;
 
   beforeEach(() => {
     // Since index.js makes calls to functions.config and admin.initializeApp at the top of the file,
@@ -28,15 +28,15 @@ describe('indexUser Cloud Function', () => {
     // functions will be executed as a part of the require process.
     // Here we stub admin.initializeApp to be a dummy function that doesn't do anything.
     /* eslint-disable global-require */
-    process.env.GCLOUD_PROJECT = 'FakeProjectId'
-    mockdatabase = new firebasemock.MockFirebase()
-    mockauth = new firebasemock.MockFirebase()
-    mockfirestore = new firebasemock.MockFirestore()
-    adminInitStub = sinon.stub(mocksdk, 'initializeApp')
+    process.env.GCLOUD_PROJECT = 'FakeProjectId';
+    mockdatabase = new firebasemock.MockFirebase();
+    mockauth = new firebasemock.MockFirebase();
+    mockfirestore = new firebasemock.MockFirestore();
+    adminInitStub = sinon.stub(mocksdk, 'initializeApp');
     // Next we stub functions.config(). Normally config values are loaded from Cloud Runtime Config;
     // here we'll just provide some fake values for firebase.databaseURL and firebase.storageBucket
     // so that an error is not thrown during admin.initializeApp's parameter check
-    functions = require('firebase-functions')
+    functions = require('firebase-functions');
     configStub = sinon.stub(functions, 'config').returns({
       firebase: {
         databaseURL: 'https://not-a-project.firebaseio.com',
@@ -46,21 +46,21 @@ describe('indexUser Cloud Function', () => {
       }
       // You can stub any other config values needed by your functions here, for example:
       // foo: 'bar'
-    })
+    });
     // Now we require index.js and save the exports inside a namespace called myFunctions
     // if we use ../ without dirname here, it can not be run with --prefix from parent folder
-    myFunctions = require(`${__dirname}/../../index`)
-    mockdatabase.autoFlush()
-    mockauth.autoFlush()
-    mockfirestore.autoFlush()
+    myFunctions = require(`${__dirname}/../../index`);
+    mockdatabase.autoFlush();
+    mockauth.autoFlush();
+    mockfirestore.autoFlush();
     /* eslint-enable global-require */
-  })
+  });
 
   afterEach(() => {
     // Restoring stubs to the original methods
-    configStub.restore()
-    adminInitStub.restore()
-  })
+    configStub.restore();
+    adminInitStub.restore();
+  });
 
   it('adds display name if it did not exist before', async () => {
     const fakeEvent = {
@@ -76,17 +76,17 @@ describe('indexUser Cloud Function', () => {
       params: {
         userId: '123ABC'
       }
-    }
+    };
     // Invoke function with fake event
     try {
-      await myFunctions.indexUser(fakeEvent)
+      await myFunctions.indexUser(fakeEvent);
     } catch (err) {
-      expect(err).to.exist
+      expect(err).to.exist;
       expect(
         err.message.indexOf('The project not-a-project.appspot does not exist')
-      ).to.not.equal(-1)
+      ).to.not.equal(-1);
     }
-  })
+  });
 
   it('returns null if display name is not changed', async () => {
     const fakeEvent = {
@@ -113,10 +113,10 @@ describe('indexUser Cloud Function', () => {
       params: {
         userId: '123ABC'
       }
-    }
+    };
     // Invoke webhook with our fake request and response objects. This will cause the
     // assertions in the response object to be evaluated.
-    const res = await myFunctions.indexUser(fakeEvent)
-    expect(res).to.be.null
-  })
-})
+    const res = await myFunctions.indexUser(fakeEvent);
+    expect(res).to.be.null;
+  });
+});
