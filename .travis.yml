@@ -5,7 +5,7 @@ sudo: false
 language: node_js
 
 node_js:
- - 6.14.0 
+ - 10.6.0
 
 notifications:
   email:
@@ -42,6 +42,13 @@ addons:
 deploy:
   skip_cleanup: true
   provider: heroku
-  api_key:
-    secure: $HEROKU_KEY
-  app: $HEROKU_APP
+  api_key: 3059c864-ebf2-45bd-a3a0-e649feb7ce8a
+    secure: 
+  app: musedarts
+
+# Client:      <none>
+#ID:          dc2f1adf-751f-4632-8ba2-48341c1cf567
+#Description: Long-lived user authorization
+#Scope:       global
+#Token:       3059c864-ebf2-45bd-a3a0-e649feb7ce8a
+#Updated at:  Sat Jul 07 2018 18:19:19 GMT-0500 (Central Daylight Time) (less than a minute ago)
