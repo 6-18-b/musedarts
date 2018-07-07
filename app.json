@@ -1,0 +1,13 @@
+{
+  "name":"mused",
+  "description": "mused built with generator-react-firebase",
+  "repository": "https://github.com/SabrinaDanielle/mused",
+  "keywords": [
+    "generator-react-firebase",
+    "react",
+    "redux",
+    "firebase",
+    "redux-firebase",
+    "react-redux-firebase",
+  ]
+}
