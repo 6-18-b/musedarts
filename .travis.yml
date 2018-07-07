@@ -26,7 +26,7 @@ cache:
 
 install:
   # TODO: Use npm again functions runtime is updated to a node verion with lock files
-  - yarn install
+  - yarn install --ignore-engines
   - yarn add firebase-ci@0.4.6 # install firebase-ci for use in creating config and deploying
 
 script:
