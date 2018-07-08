@@ -32,6 +32,7 @@
   "author": "SabrinaDanielle (https://github.com/SabrinaDanielle)",
   "license": "MIT",
   "dependencies": {
+    "@firebase/app-types": "^0.3.2",
     "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
     "firebase": "^5.0.4",
