@@ -1,4 +1,4 @@
-import SignupForm from './SignupForm'
-import enhance from './SignupForm.enhancer'
+import SignupForm from './SignupForm';
+import enhance from './SignupForm.enhancer';
 
-export default enhance(SignupForm)
+export default enhance(SignupForm);

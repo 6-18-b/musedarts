@@ -2,9 +2,9 @@ import {
   NOTIFICATION_SHOW,
   NOTIFICATION_DISMISS,
   NOTIFICATION_CLEAR
-} from './actionTypes'
+} from './actionTypes';
 
-const defaultDismissTime = 2500 // 2.5 seconds
+const defaultDismissTime = 2500; // 2.5 seconds
 
 /**
  * @description Publish a notification. if `dismissAfter` is set,
@@ -15,28 +15,28 @@ const defaultDismissTime = 2500 // 2.5 seconds
  * @param {Object} notif.dismissAfter - Time after which to dismiss notification (default time set in constants)
  */
 export const showNotification = notif => {
-  const payload = Object.assign({}, notif)
+  const payload = Object.assign({}, notif);
   // Set default id to now if none provided
   if (!payload.id) {
-    payload.id = Date.now()
+    payload.id = Date.now();
   }
   return dispatch => {
-    dispatch({ type: NOTIFICATION_SHOW, payload })
+    dispatch({ type: NOTIFICATION_SHOW, payload });
 
     setTimeout(() => {
       dispatch({
         type: NOTIFICATION_DISMISS,
         payload: payload.id
-      })
-    }, payload.dismissAfter || defaultDismissTime)
-  }
-}
+      });
+    }, payload.dismissAfter || defaultDismissTime);
+  };
+};
 
 export const showSuccess = message =>
-  showNotification({ type: 'success', message })
+  showNotification({ type: 'success', message });
 
 export const showError = message =>
-  showNotification({ type: 'error', message: `Error: ${message || ''}` })
+  showNotification({ type: 'error', message: `Error: ${message || ''}` });
 
 /**
  * @description Dismiss a notification by the given id.
@@ -45,9 +45,9 @@ export const showError = message =>
 export const dismissNotification = payload => ({
   type: NOTIFICATION_DISMISS,
   payload
-})
+});
 
 /**
  * @description Clear all notifications
  */
-export const clearNotifications = () => ({ type: NOTIFICATION_CLEAR })
+export const clearNotifications = () => ({ type: NOTIFICATION_CLEAR });

@@ -1,9 +1,9 @@
-import { firebase, googleApis } from '../config'
-import { version } from '../../package.json'
+import { firebase, googleApis } from '../config';
+import { version } from '../../package.json';
 
-const environment = process.env.NODE_ENV
+const environment = process.env.NODE_ENV;
 
-let errorHandler
+let errorHandler;
 
 /**
  * Initialize client side error reporting to Stackdriver. Error handling
@@ -12,18 +12,18 @@ let errorHandler
 export function init() {
   if (googleApis && googleApis.apiKey && environment === 'production') {
     window.addEventListener('DOMContentLoaded', () => {
-      errorHandler = new window.StackdriverErrorReporter()
+      errorHandler = new window.StackdriverErrorReporter();
       errorHandler.start({
         key: googleApis.apiKey,
         projectId: firebase.projectId,
         service: 'mused-site',
         version
-      })
-    })
+      });
+    });
   } else {
-    errorHandler = console.error // eslint-disable-line no-console
+    errorHandler = console.error; // eslint-disable-line no-console
   }
-  return errorHandler
+  return errorHandler;
 }
 
 /**
@@ -33,8 +33,8 @@ export function init() {
  */
 export function setErrorUser(auth) {
   if (errorHandler && errorHandler.setUser && auth && auth.uid) {
-    errorHandler.setUser(auth.uid)
+    errorHandler.setUser(auth.uid);
   }
 }
 
-export default errorHandler
+export default errorHandler;

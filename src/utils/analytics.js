@@ -1,6 +1,6 @@
-import ReactGA from 'react-ga'
-import { version } from '../../package.json'
-import { analyticsTrackingId, env } from 'config' // eslint-disable-line import/no-unresolved
+import ReactGA from 'react-ga';
+import { version } from '../../package.json';
+import { analyticsTrackingId, env } from 'config'; // eslint-disable-line import/no-unresolved
 
 /**
  * Initialize Google Analytics if analytics id exists and environment is
@@ -8,11 +8,11 @@ import { analyticsTrackingId, env } from 'config' // eslint-disable-line import/
  */
 export function initGA() {
   if (analyticsTrackingId && env === 'production') {
-    ReactGA.initialize(analyticsTrackingId)
+    ReactGA.initialize(analyticsTrackingId);
     ReactGA.set({
       appName: env || 'Production',
       appVersion: version
-    })
+    });
   }
 }
 
@@ -22,9 +22,9 @@ export function initGA() {
  */
 export function triggerAnalyticsEvent(eventData) {
   if (analyticsTrackingId && env === 'production') {
-    ReactGA.event(eventData)
+    ReactGA.event(eventData);
   } else {
-    console.debug('Analytics Event:', eventData) // eslint-disable-line no-console
+    console.debug('Analytics Event:', eventData); // eslint-disable-line no-console
   }
 }
 
@@ -35,7 +35,7 @@ export function triggerAnalyticsEvent(eventData) {
  */
 export function setGAUser(auth) {
   if (auth && auth.uid) {
-    ReactGA.set({ userId: auth.uid })
+    ReactGA.set({ userId: auth.uid });
   }
 }
 
@@ -44,9 +44,9 @@ export function setGAUser(auth) {
  */
 export function trackRouteUpdate() {
   if (analyticsTrackingId) {
-    ReactGA.set({ page: window.location.pathname })
-    ReactGA.pageview(window.location.pathname)
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
   }
 }
 
-export default { initGA, triggerAnalyticsEvent, trackRouteUpdate }
+export default { initGA, triggerAnalyticsEvent, trackRouteUpdate };

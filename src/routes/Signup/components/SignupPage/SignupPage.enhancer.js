@@ -1,7 +1,7 @@
-import { withFirebase } from 'react-redux-firebase'
-import { withHandlers, pure, compose } from 'recompose'
-import { UserIsNotAuthenticated } from 'utils/router'
-import { withNotifications } from 'modules/notification'
+import { withFirebase } from 'react-redux-firebase';
+import { withHandlers, pure, compose } from 'recompose';
+import { UserIsNotAuthenticated } from 'utils/router';
+import { withNotifications } from 'modules/notification';
 
 export default compose(
   UserIsNotAuthenticated, // redirect to list page if logged in
@@ -24,4 +24,4 @@ export default compose(
         .catch(err => showError(err.message))
   }),
   pure // shallow equals comparison on props (prevent unessesary re-renders)
-)
+);
