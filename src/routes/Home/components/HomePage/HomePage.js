@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router';
-import { paths } from 'constants';
-import classes from './HomePage.scss';
-const authWrapperUrl = 'https://github.com/mjrussell/redux-auth-wrapper';
-const reactRouterUrl = 'https://github.com/ReactTraining/react-router';
+import React from 'react'
+import { Link } from 'react-router'
+import { paths } from 'constants'
+import classes from './HomePage.scss'
+const authWrapperUrl = 'https://github.com/mjrussell/redux-auth-wrapper'
+const reactRouterUrl = 'https://github.com/ReactTraining/react-router'
 
 export const Home = () => (
   <div className={classes.container}>
@@ -83,6 +83,6 @@ export const Home = () => (
       </div>
     </div>
   </div>
-);
+)
 
-export default Home;
+export default Home

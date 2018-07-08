@@ -5,7 +5,7 @@ const pkg = require('../package.json')
 const outputPath = path.join(__dirname, '..', 'src/config.js')
 const config = require('../.firebaserc')
 
-const createConfigFile = (cb) => {
+const createConfigFile = cb => {
   const configObj = {
     version: pkg.version,
     env: 'development',
@@ -22,14 +22,19 @@ const createConfigFile = (cb) => {
     }
   }
 
-  const fileString = `export const firebase = ${JSON.stringify(configObj.firebase, null, 2)}\n` +
+  const fileString =
+    `export const firebase = ${JSON.stringify(configObj.firebase, null, 2)}\n` +
     '\n// Config for react-redux-firebase' +
     '\n// For more details, visit https://prescottprue.gitbooks.io/react-redux-firebase/content/config.html' +
-    `\nexport const reduxFirebase = ${JSON.stringify(configObj.reduxFirebase, null, 2)}\n` +
+    `\nexport const reduxFirebase = ${JSON.stringify(
+      configObj.reduxFirebase,
+      null,
+      2
+    )}\n` +
     `\nexport const env = ${JSON.stringify(configObj.env)}\n` +
     `\nexport default { firebase, reduxFirebase, env }\n`
 
-  fs.writeFile(outputPath, fileString, 'utf8', (err) => {
+  fs.writeFile(outputPath, fileString, 'utf8', err => {
     if (err) {
       debug('Error writing config file:', err)
       if (cb) cb(err, null)
@@ -38,8 +43,7 @@ const createConfigFile = (cb) => {
     if (cb) cb()
   })
 }
-
-(function () {
+;(function() {
   createConfigFile(() => {
     debug('Config file successfully written to src/config.js')
   })
