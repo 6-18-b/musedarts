@@ -9,14 +9,14 @@ export default () => ({
       require => {
         /*  Webpack - use require callback to define
           dependencies for bundling   */
-        const NotFound = require('./NotFound').default
+        const NotFound = require('./NotFound').default;
 
         /*  Return getComponent   */
-        cb(null, NotFound)
+        cb(null, NotFound);
 
         /* Webpack named bundle   */
       },
       'NotFound'
-    )
+    );
   }
-})
+});

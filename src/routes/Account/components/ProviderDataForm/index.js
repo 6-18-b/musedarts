@@ -1,3 +1,3 @@
-import ProviderDataForm from './ProviderDataForm'
+import ProviderDataForm from './ProviderDataForm';
 
-export default ProviderDataForm
+export default ProviderDataForm;

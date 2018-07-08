@@ -1,10 +1,10 @@
-import { UserAuthWrapper } from 'redux-auth-wrapper'
-import { browserHistory } from 'react-router'
-import { LIST_PATH } from 'constants'
-import LoadingSpinner from 'components/LoadingSpinner'
+import { UserAuthWrapper } from 'redux-auth-wrapper';
+import { browserHistory } from 'react-router';
+import { LIST_PATH } from 'constants';
+import LoadingSpinner from 'components/LoadingSpinner';
 
-const AUTHED_REDIRECT = 'AUTHED_REDIRECT'
-const UNAUTHED_REDIRECT = 'UNAUTHED_REDIRECT'
+const AUTHED_REDIRECT = 'AUTHED_REDIRECT';
+const UNAUTHED_REDIRECT = 'UNAUTHED_REDIRECT';
 
 /**
  * @description Higher Order Component that redirects to `/login` instead
@@ -20,13 +20,13 @@ export const UserIsAuthenticated = UserAuthWrapper({
     !auth.isLoaded || isInitializing,
   predicate: auth => !auth.isEmpty,
   redirectAction: newLoc => dispatch => {
-    browserHistory.replace(newLoc)
+    browserHistory.replace(newLoc);
     dispatch({
       type: UNAUTHED_REDIRECT,
       payload: { message: 'User is not authenticated.' }
-    })
+    });
   }
-})
+});
 
 /**
  * @description Higher Order Component that redirects to listings page or most
@@ -48,12 +48,12 @@ export const UserIsNotAuthenticated = UserAuthWrapper({
     !auth.isLoaded || isInitializing,
   predicate: auth => auth.isEmpty,
   redirectAction: newLoc => dispatch => {
-    browserHistory.replace(newLoc)
-    dispatch({ type: AUTHED_REDIRECT })
+    browserHistory.replace(newLoc);
+    dispatch({ type: AUTHED_REDIRECT });
   }
-})
+});
 
 export default {
   UserIsAuthenticated,
   UserIsNotAuthenticated
-}
+};

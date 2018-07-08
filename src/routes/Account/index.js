@@ -1,4 +1,4 @@
-import { ACCOUNT_PATH as path } from 'constants'
+import { ACCOUNT_PATH as path } from 'constants';
 
 export default store => ({
   path,
@@ -11,14 +11,14 @@ export default store => ({
       require => {
         /*  Webpack - use require callback to define
           dependencies for bundling   */
-        const Account = require('./components/AccountPage').default
+        const Account = require('./components/AccountPage').default;
 
         /*  Return getComponent   */
-        cb(null, Account)
+        cb(null, Account);
 
         /* Webpack named bundle   */
       },
       'Account'
-    )
+    );
   }
-})
+});

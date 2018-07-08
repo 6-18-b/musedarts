@@ -1,9 +1,9 @@
-const debug = require('debug')('app:build:config')
-const fs = require('fs')
-const path = require('path')
-const pkg = require('../package.json')
-const outputPath = path.join(__dirname, '..', 'src/config.js')
-const config = require('../.firebaserc')
+const debug = require('debug')('app:build:config');
+const fs = require('fs');
+const path = require('path');
+const pkg = require('../package.json');
+const outputPath = path.join(__dirname, '..', 'src/config.js');
+const config = require('../.firebaserc');
 
 const createConfigFile = cb => {
   const configObj = {
@@ -11,14 +11,14 @@ const createConfigFile = cb => {
     env: 'development',
     firebase: config.ci.development.firebase,
     reduxFirebase: config.ci.development.reduxFirebase
-  }
+  };
 
   // TODO: load config from environments
   if (process.env.TRAVIS_PULL_REQUEST === 'false') {
     if (process.env.TRAVIS_BRANCH === 'prod') {
-      configObj.env = 'production'
-      configObj.firebase = config.ci.production.firebase
-      configObj.reduxFirebase = config.ci.production.reduxFirebase
+      configObj.env = 'production';
+      configObj.firebase = config.ci.production.firebase;
+      configObj.reduxFirebase = config.ci.production.reduxFirebase;
     }
   }
 
@@ -32,19 +32,19 @@ const createConfigFile = cb => {
       2
     )}\n` +
     `\nexport const env = ${JSON.stringify(configObj.env)}\n` +
-    `\nexport default { firebase, reduxFirebase, env }\n`
+    `\nexport default { firebase, reduxFirebase, env }\n`;
 
   fs.writeFile(outputPath, fileString, 'utf8', err => {
     if (err) {
-      debug('Error writing config file:', err)
-      if (cb) cb(err, null)
-      return
+      debug('Error writing config file:', err);
+      if (cb) cb(err, null);
+      return;
     }
-    if (cb) cb()
-  })
-}
-;(function() {
+    if (cb) cb();
+  });
+};
+(function() {
   createConfigFile(() => {
-    debug('Config file successfully written to src/config.js')
-  })
-})()
+    debug('Config file successfully written to src/config.js');
+  });
+})();
