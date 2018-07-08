@@ -1,4 +1,4 @@
-import { LOGIN_PATH as path } from 'constants';
+import { LOGIN_PATH as path } from 'constants'
 
 export default store => ({
   path,
@@ -11,14 +11,14 @@ export default store => ({
       require => {
         /*  Webpack - use require callback to define
           dependencies for bundling   */
-        const Login = require('./components/LoginPage').default;
+        const Login = require('./components/LoginPage').default
 
         /*  Return getComponent   */
-        cb(null, Login);
+        cb(null, Login)
 
         /* Webpack named bundle   */
       },
       'Login'
-    );
+    )
   }
-});
+})

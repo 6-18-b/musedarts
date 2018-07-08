@@ -1,11 +1,11 @@
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { LIST_PATH } from 'constants';
-import { withHandlers, withStateHandlers, pure } from 'recompose';
-import { firestoreConnect } from 'react-redux-firebase';
-import { withNotifications } from 'modules/notification';
-import { withRouter, spinnerWhileLoading } from 'utils/components';
-import { UserIsAuthenticated } from 'utils/router';
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { LIST_PATH } from 'constants'
+import { withHandlers, withStateHandlers, pure } from 'recompose'
+import { firestoreConnect } from 'react-redux-firebase'
+import { withNotifications } from 'modules/notification'
+import { withRouter, spinnerWhileLoading } from 'utils/components'
+import { UserIsAuthenticated } from 'utils/router'
 
 export default compose(
   // redirect to /login if user is not logged in
@@ -48,9 +48,9 @@ export default compose(
   // Add handlers as props
   withHandlers({
     addProject: props => newInstance => {
-      const { firestore, uid, showError, showSuccess, toggleDialog } = props;
+      const { firestore, uid, showError, showSuccess, toggleDialog } = props
       if (!uid) {
-        return showError('You must be logged in to create a project');
+        return showError('You must be logged in to create a project')
       }
       return firestore
         .add(
@@ -62,29 +62,29 @@ export default compose(
           }
         )
         .then(() => {
-          toggleDialog();
-          showSuccess('Project added successfully');
+          toggleDialog()
+          showSuccess('Project added successfully')
         })
         .catch(err => {
-          console.error('Error:', err); // eslint-disable-line no-console
-          showError(err.message || 'Could not add project');
-          return Promise.reject(err);
-        });
+          console.error('Error:', err) // eslint-disable-line no-console
+          showError(err.message || 'Could not add project')
+          return Promise.reject(err)
+        })
     },
     deleteProject: props => projectId => {
-      const { firestore, showError, showSuccess } = props;
+      const { firestore, showError, showSuccess } = props
       return firestore
         .delete({ collection: 'projects', doc: projectId })
         .then(() => showSuccess('Project deleted successfully'))
         .catch(err => {
-          console.error('Error:', err); // eslint-disable-line no-console
-          showError(err.message || 'Could not delete project');
-          return Promise.reject(err);
-        });
+          console.error('Error:', err) // eslint-disable-line no-console
+          showError(err.message || 'Could not delete project')
+          return Promise.reject(err)
+        })
     },
     goToProject: ({ router }) => projectId => {
-      router.push(`${LIST_PATH}/${projectId}`);
+      router.push(`${LIST_PATH}/${projectId}`)
     }
   }),
   pure // shallow equals comparison on props (prevent unessesary re-renders)
-);
+)

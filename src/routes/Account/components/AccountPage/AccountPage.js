@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Paper from '@material-ui/core/Paper';
-import AccountForm from '../AccountForm';
-import defaultUserImageUrl from 'static/User.png';
-import classes from './AccountPage.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Paper from '@material-ui/core/Paper'
+import AccountForm from '../AccountForm'
+import defaultUserImageUrl from 'static/User.png'
+import classes from './AccountPage.scss'
 
 export const AccountPage = ({ avatarUrl, updateAccount, profile }) => (
   <div className={classes.container}>
@@ -25,12 +25,12 @@ export const AccountPage = ({ avatarUrl, updateAccount, profile }) => (
       </div>
     </Paper>
   </div>
-);
+)
 
 AccountPage.propTypes = {
   avatarUrl: PropTypes.string,
   profile: PropTypes.object,
   updateAccount: PropTypes.func
-};
+}
 
-export default AccountPage;
+export default AccountPage

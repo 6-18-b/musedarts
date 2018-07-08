@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import AccountMenu from './AccountMenu';
-import LoginMenu from './LoginMenu';
-import { LIST_PATH } from 'constants';
-import classes from './Navbar.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import AccountMenu from './AccountMenu'
+import LoginMenu from './LoginMenu'
+import { LIST_PATH } from 'constants'
+import classes from './Navbar.scss'
 
 export const Navbar = ({
   avatarUrl,
@@ -44,7 +44,7 @@ export const Navbar = ({
       )}
     </Toolbar>
   </AppBar>
-);
+)
 
 Navbar.propTypes = {
   displayName: PropTypes.string, // from enhancer (flattenProps - profile)
@@ -55,6 +55,6 @@ Navbar.propTypes = {
   closeAccountMenu: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
   handleMenu: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
   anchorEl: PropTypes.object // from enhancer (withStateHandlers - handleMenu)
-};
+}
 
-export default Navbar;
+export default Navbar

@@ -1,10 +1,10 @@
-import React, { cloneElement } from 'react';
-import PropTypes from 'prop-types';
-import { isEmpty } from 'react-redux-firebase';
-import ProjectTile from '../ProjectTile';
-import NewProjectTile from '../NewProjectTile';
-import NewProjectDialog from '../NewProjectDialog';
-import classes from './ProjectsPage.scss';
+import React, { cloneElement } from 'react'
+import PropTypes from 'prop-types'
+import { isEmpty } from 'react-redux-firebase'
+import ProjectTile from '../ProjectTile'
+import NewProjectTile from '../NewProjectTile'
+import NewProjectDialog from '../NewProjectDialog'
+import classes from './ProjectsPage.scss'
 
 export const ProjectsPage = ({
   children,
@@ -39,7 +39,7 @@ export const ProjectsPage = ({
           ))}
       </div>
     </div>
-  );
+  )
 
 ProjectsPage.propTypes = {
   children: PropTypes.object, // from react-router
@@ -51,6 +51,6 @@ ProjectsPage.propTypes = {
   collabProjects: PropTypes.object, // from enhancer (withHandlers - firebase)
   addProject: PropTypes.func.isRequired, // from enhancer (withHandlers - firebase)
   goToProject: PropTypes.func.isRequired // from enhancer (withHandlers - router)
-};
+}
 
-export default ProjectsPage;
+export default ProjectsPage

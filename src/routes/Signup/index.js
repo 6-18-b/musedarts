@@ -1,4 +1,4 @@
-import { SIGNUP_PATH as path } from 'constants';
+import { SIGNUP_PATH as path } from 'constants'
 
 export default store => ({
   path,
@@ -11,14 +11,14 @@ export default store => ({
       require => {
         /*  Webpack - use require callback to define
           dependencies for bundling   */
-        const Signup = require('./components/SignupPage').default;
+        const Signup = require('./components/SignupPage').default
 
         /*  Return getComponent   */
-        cb(null, Signup);
+        cb(null, Signup)
 
         /* Webpack named bundle   */
       },
       'Signup'
-    );
+    )
   }
-});
+})

@@ -1,14 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router';
-import Button from '@material-ui/core/Button';
-import { LOGIN_PATH, SIGNUP_PATH } from 'constants';
-import classes from './Navbar.scss';
+import React from 'react'
+import { Link } from 'react-router'
+import Button from '@material-ui/core/Button'
+import { LOGIN_PATH, SIGNUP_PATH } from 'constants'
+import classes from './Navbar.scss'
 
 const buttonStyle = {
   color: 'white',
   textDecoration: 'none',
   alignSelf: 'center'
-};
+}
 
 export const LoginMenu = () => (
   <div className={classes.menu}>
@@ -19,6 +19,6 @@ export const LoginMenu = () => (
       Login
     </Button>
   </div>
-);
+)
 
-export default LoginMenu;
+export default LoginMenu

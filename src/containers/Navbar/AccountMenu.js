@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import IconButton from '@material-ui/core/IconButton';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import { withStyles } from '@material-ui/core/styles';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import IconButton from '@material-ui/core/IconButton'
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
   buttonRoot: {
     color: 'white'
   }
-};
+}
 
 export const AccountMenu = ({
   avatarUrl,
@@ -41,7 +41,7 @@ export const AccountMenu = ({
       <MenuItem onClick={onLogoutClick}>Sign Out</MenuItem>
     </Menu>
   </div>
-);
+)
 
 AccountMenu.propTypes = {
   displayName: PropTypes.string,
@@ -52,6 +52,6 @@ AccountMenu.propTypes = {
   closeAccountMenu: PropTypes.func.isRequired,
   handleMenu: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired // from withStyles
-};
+}
 
-export default withStyles(styles)(AccountMenu);
+export default withStyles(styles)(AccountMenu)

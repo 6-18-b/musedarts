@@ -1,8 +1,8 @@
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { firestoreConnect, getVal as get } from 'react-redux-firebase';
-import { spinnerWhileLoading } from 'utils/components';
-import { UserIsAuthenticated } from 'utils/router';
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { firestoreConnect, getVal } from 'react-redux-firebase'
+import { spinnerWhileLoading } from 'utils/components'
+import { UserIsAuthenticated } from 'utils/router'
 
 export default compose(
   // redirect to /login if user is not logged in
@@ -21,4 +21,4 @@ export default compose(
   })),
   // Show loading spinner while project is loading
   spinnerWhileLoading(['project'])
-);
+)

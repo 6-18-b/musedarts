@@ -9,14 +9,14 @@ export default store => ({
       require => {
         /*  Webpack - use require callback to define
           dependencies for bundling   */
-        const Project = require('./components/ProjectPage').default;
+        const Project = require('./components/ProjectPage').default
 
         /*  Return getComponent   */
-        cb(null, Project);
+        cb(null, Project)
 
         /* Webpack named bundle   */
       },
       'Project'
-    );
+    )
   }
-});
+})

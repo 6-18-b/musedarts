@@ -1,3 +1,3 @@
-import ProjectTile from './ProjectTile';
+import ProjectTile from './ProjectTile'
 
-export default ProjectTile;
+export default ProjectTile

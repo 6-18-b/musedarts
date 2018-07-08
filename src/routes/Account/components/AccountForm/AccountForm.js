@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
-import Button from '@material-ui/core/Button';
-import { TextField } from 'redux-form-material-ui';
-import ProviderDataForm from '../ProviderDataForm';
-import classes from './AccountForm.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Field } from 'redux-form'
+import Button from '@material-ui/core/Button'
+import { TextField } from 'redux-form-material-ui'
+import ProviderDataForm from '../ProviderDataForm'
+import classes from './AccountForm.scss'
 
 export const AccountForm = ({
   account,
@@ -40,13 +40,13 @@ export const AccountForm = ({
       {submitting ? 'Saving' : 'Save'}
     </Button>
   </form>
-);
+)
 
 AccountForm.propTypes = {
   account: PropTypes.object,
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired
-};
+}
 
-export default AccountForm;
+export default AccountForm
