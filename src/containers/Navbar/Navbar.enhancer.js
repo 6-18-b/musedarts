@@ -1,14 +1,14 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import {
   withHandlers,
   compose,
   withProps,
   flattenProp,
   withStateHandlers
-} from 'recompose';
-import { withFirebase, isEmpty, isLoaded } from 'react-redux-firebase';
-import { ACCOUNT_PATH } from 'constants';
-import { withRouter, spinnerWhileLoading } from 'utils/components';
+} from 'recompose'
+import { withFirebase, isEmpty, isLoaded } from 'react-redux-firebase'
+import { ACCOUNT_PATH } from 'constants'
+import { withRouter, spinnerWhileLoading } from 'utils/components'
 
 export default compose(
   connect(({ firebase: { auth, profile } }) => ({
@@ -38,13 +38,13 @@ export default compose(
   // Handlers
   withHandlers({
     handleLogout: props => () => {
-      props.firebase.logout();
-      props.router.push('/');
-      props.closeAccountMenu();
+      props.firebase.logout()
+      props.router.push('/')
+      props.closeAccountMenu()
     },
     goToAccount: props => () => {
-      props.router.push(ACCOUNT_PATH);
-      props.closeAccountMenu();
+      props.router.push(ACCOUNT_PATH)
+      props.closeAccountMenu()
     }
   }),
   withProps(({ auth, profile }) => ({
@@ -52,4 +52,4 @@ export default compose(
   })),
   // Flatten profile so that avatarUrl and displayName are available
   flattenProp('profile')
-);
+)

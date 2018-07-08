@@ -1,6 +1,7 @@
 # mused
 
-
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
 [![Code Coverage][coverage-image]][coverage-url]
 [![Code Climate][climate-image]][climate-url]
 [![License][license-image]][license-url]
@@ -150,7 +151,10 @@ To deploy to [Heroku](http://heroku.com) through [Travis-CI](http://travis-ci.or
     * smaller files which are easier to parse
     * functional components can be helpful (along with other tools) when attempting to optimize things
 
-
+[travis-image]: https://img.shields.io/travis/SabrinaDanielle/mused/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/SabrinaDanielle/mused
+[daviddm-image]: https://img.shields.io/david/SabrinaDanielle/mused.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/SabrinaDanielle/mused
 [climate-image]: https://img.shields.io/codeclimate/github/SabrinaDanielle/mused.svg?style=flat-square
 [climate-url]: https://codeclimate.com/github/SabrinaDanielle/mused
 [coverage-image]: https://img.shields.io/codeclimate/coverage/github/SabrinaDanielle/mused.svg?style=flat-square

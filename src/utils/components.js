@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { pick, some } from 'lodash';
-import { isLoaded } from 'react-redux-firebase';
-import { mapProps, branch, renderComponent } from 'recompose';
-import LoadingSpinner from 'components/LoadingSpinner';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { pick, some } from 'lodash'
+import { isLoaded } from 'react-redux-firebase'
+import { mapProps, branch, renderComponent } from 'recompose'
+import LoadingSpinner from 'components/LoadingSpinner'
 
 /**
  * Show a loading spinner when a condition is truthy. Used within
@@ -13,7 +13,7 @@ import LoadingSpinner from 'components/LoadingSpinner';
  * @return {HigherOrderComponent}
  */
 export const spinnerWhile = condition =>
-  branch(condition, renderComponent(LoadingSpinner));
+  branch(condition, renderComponent(LoadingSpinner))
 
 /**
  * Show a loading spinner while props are loading . Checks
@@ -37,7 +37,7 @@ export const spinnerWhile = condition =>
  * @return {HigherOrderComponent}
  */
 export const spinnerWhileLoading = propNames =>
-  spinnerWhile(props => some(propNames, name => !isLoaded(props[name])));
+  spinnerWhile(props => some(propNames, name => !isLoaded(props[name])))
 
 /**
  * HOC that logs props using console.log. Accepts an array list of prop names
@@ -63,32 +63,32 @@ export const logProps = (propNames, logName = '') =>
     console.log(
       `${logName} props:`,
       propNames ? pick(ownerProps, propNames) : ownerProps
-    );
-    return ownerProps;
-  });
+    )
+    return ownerProps
+  })
 
 export const createWithFromContext = withVar => WrappedComponent => {
   class WithFromContext extends Component {
     render() {
-      const props = { [withVar]: this.context[withVar] };
+      const props = { [withVar]: this.context[withVar] }
       if (this.context.store && this.context.store.dispatch) {
-        props.dispatch = this.context.store.dispatch;
+        props.dispatch = this.context.store.dispatch
       }
-      return <WrappedComponent {...this.props} {...props} />;
+      return <WrappedComponent {...this.props} {...props} />
     }
   }
 
   WithFromContext.contextTypes = {
     [withVar]: PropTypes.object.isRequired
-  };
+  }
 
-  return WithFromContext;
-};
+  return WithFromContext
+}
 
-export const withRouter = createWithFromContext('router');
+export const withRouter = createWithFromContext('router')
 
 /**
  * HOC that adds store to props
  * @return {HigherOrderComponent}
  */
-export const withStore = createWithFromContext('store');
+export const withStore = createWithFromContext('store')

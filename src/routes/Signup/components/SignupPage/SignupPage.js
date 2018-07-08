@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import GoogleButton from 'react-google-button';
-import Paper from '@material-ui/core/Paper';
-import { LOGIN_PATH } from 'constants';
-import SignupForm from '../SignupForm';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router'
+import GoogleButton from 'react-google-button'
+import Paper from '@material-ui/core/Paper'
+import { LOGIN_PATH } from 'constants'
+import SignupForm from '../SignupForm'
 
-import classes from './SignupPage.scss';
+import classes from './SignupPage.scss'
 
 export const SignupPage = ({ emailSignup, googleLogin, onSubmitFail }) => (
   <div className={classes.container}>
@@ -24,12 +24,12 @@ export const SignupPage = ({ emailSignup, googleLogin, onSubmitFail }) => (
       </Link>
     </div>
   </div>
-);
+)
 
 SignupPage.propTypes = {
   emailSignup: PropTypes.func, // from enhancer (withHandlers - firebase)
   googleLogin: PropTypes.func, // from enhancer (withHandlers - firebase)
   onSubmitFail: PropTypes.func // from enhancer (reduxForm)
-};
+}
 
-export default SignupPage;
+export default SignupPage

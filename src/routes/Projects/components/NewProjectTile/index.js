@@ -1,3 +1,3 @@
-import NewProjectTile from './NewProjectTile';
+import NewProjectTile from './NewProjectTile'
 
-export default NewProjectTile;
+export default NewProjectTile

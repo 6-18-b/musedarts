@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import classes from './LoadingSpinner.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import classes from './LoadingSpinner.scss'
 
 export const LoadingSpinner = ({ size }) => (
   <div className={classes.container}>
@@ -9,10 +9,10 @@ export const LoadingSpinner = ({ size }) => (
       <CircularProgress mode="indeterminate" size={size || 80} />
     </div>
   </div>
-);
+)
 
 LoadingSpinner.propTypes = {
   size: PropTypes.number
-};
+}
 
-export default LoadingSpinner;
+export default LoadingSpinner
