@@ -25,7 +25,7 @@ script:
 - npm run build
 addons:
   code_climate:
-    repo_token: "$CODE_CLIMATE"
+    repo_token:  $CODE_CLIMATE
 deploy:
   provider: heroku
   api_key: 0ec037c3-5356-495a-aadb-4288ba2f1169
