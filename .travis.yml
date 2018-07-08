@@ -26,7 +26,7 @@ cache:
 
 install:
   # TODO: Use npm again functions runtime is updated to a node verion with lock files
-  - yarn install --ignore-engines
+  - yarn install
   - yarn add firebase-ci@0.4.6 # install firebase-ci for use in creating config and deploying
 
 script:
@@ -42,9 +42,9 @@ addons:
 deploy:
   skip_cleanup: true
   provider: heroku
-  api_key: 3059c864-ebf2-45bd-a3a0-e649feb7ce8a
-    secure: 
-  app: musedarts
+  api_key: 
+    secure: $HEROKU_KEY
+  app: $HEROKU_APP
 
 # Client:      <none>
 #ID:          dc2f1adf-751f-4632-8ba2-48341c1cf567
