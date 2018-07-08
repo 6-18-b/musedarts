@@ -35,6 +35,7 @@
     "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
     "firebase": "^5.0.4",
+    "firebase-ci": "^0.4.6",
     "lodash": "^4.17.10",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
