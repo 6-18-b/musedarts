@@ -1,47 +1,34 @@
 dist: trusty
-
 sudo: false
-
 language: node_js
-
 node_js:
- - 6.14.0 
-
+- 6.14.0
 notifications:
   email:
     on_failure: change
     on_success: change
-
 branches:
   only:
-    - master
-    - stage
-    - prod
-
+  - master
+  - stage
+  - prod
 cache:
-  # TODO: Use npm once functions runtime is updated to a node verion with lock files
   yarn: true
   directories:
-    - node_modules # NPM packages
-
+  - node_modules
 install:
-  # TODO: Use npm again functions runtime is updated to a node verion with lock files
-  - yarn install
-  - yarn add firebase-ci@0.4.6 # install firebase-ci for use in creating config and deploying
-
+- yarn install
+- yarn add firebase-ci@0.4.6
 script:
-  
-  - npm run lint
-  - npm run test
-  - npm run build
-
+- npm run lint
+- npm run test
+- npm run build
 addons:
   code_climate:
-    repo_token: $CODE_CLIMATE
-
+    repo_token: "$CODE_CLIMATE"
 deploy:
   skip_cleanup: true
   provider: heroku
   api_key:
-    secure: $HEROKU_KEY
-  app: $HEROKU_APP
+    secure: mZ7aich4FuAbCHoG/b2Ko6L8c0F3Kg1C8emtLTLytZbFulXuAJrXEKxpMsZA92y5EsuWGsPhzJW5uL1AffNZev14HL/VY2+grCyqoXAJAGXSisFOEt04WOknY3QjkrtpltjGoYXkZQPWfzLIAYIGMmuFNmmMsEi28PE9ZxUvOWOUc4WB7p274B+if/7nNDtVHYrzAthL44Hfqr40a6QzIz27+EyaBjzKd3EtyrlsmbV3bzWrghG71uqNGxtNhLY9ofZgRmNyzD+2qnspqzpysoGO+wwrGtC/Rds5/AfEbdRPJsDnl2upb8FgP2Y4wUMdcXayV4TDU3zG4ToL145dBGbhCEzLQtUYmSKuMEZTomKO/PH+V7MI9WLkPjk/Sb8D78UH4mH6EezjetjHML6dNUuWFunqZU0F4XZBVoXpWSHaCZGjDocIECrmBIUb5rUwmKxTD71wI8W1+3Nm/C74o+0joV7a3wkVS84iXfzr8O/qAZuV4pVsXXLexPFeYI4e3CBZcY18jOHWs53O5ydenFI1Q9MakU7bC+f9d3u1jex9fv4P/yUyr1HgeTMDTNSCqwVtzLnmRHt+7hhfka4zlvXwWy4DhLNHpUFltw1DEGvdc6vrXEDBXi6fYa2TEBNu9qd8zn4YHvFdrq+pPOAtm5Wy9PpVDPXsvk0IBtq7ugk=
+  app: musedarts
