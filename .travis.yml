@@ -1,17 +1,17 @@
-sudo: false
 dist: trusty
-notifications:
-  email:
-    on_failure: change
-    on_success: change
+addons:
+  code_climate:
+    repo_token: $CODE_CLIMATE
 branches:
   only:
     - master
     - stage
     - prod
-addons:
-  code_climate:
-    repo_token: $CODE_CLIMATE
+notifications:
+  email:
+    on_failure: change
+    on_success: change
+sudo: false
 language: node_js
 node_js:
   - v10
@@ -35,10 +35,4 @@ after_success:
 deploy:
   skip_cleanup: true
   provider: heroku
-  api_key:
-    secure: >-
-      lIpviXW+gtIoRb/0htHz4ypXKM3w1ehKmXe2WnRE9/08S1W9l9Avzr04WUJmRGhLww4NNA7yk0S+fxybRIq3GwP3hSgs7uA5CXYKVSMCvM39B9x3wH6ZlLvQq3cAxhGFfbrdSUGJHGwD/Ulyr5wXrLqNNSdL0TBKr/2lUL7LWQ+N/ofmSroEYo/jfnidwMdJW9k+3nAFk9a7qMXknFtW07AD8+okKw7JCIq3fvSwBw9qRIz30hxPNOkO6nIYL6vBFmdvzYlxfQBenchroJjiB/syeKw8i+hMvB1WY9Ogz5boktxwVi48yi6hJY4jnPmbkUO9r85gdeGY7QXtrYUjIJ0UiVdom2uWs9dhmolYtH61T8M004E0/UDcUjd4/4g4V8cwwgV/uJ0Ux15IK8g9noltMn3oMhsL3b7WPZYAJXQNXZh9so+YlYKq6QrL7mYzOrXB7r5yZjGzoAvcNfEuuNAVXFkRBu1P7mTdqZn5P8ZF5AOQvquUa2JneIvkvsbFvdrBbVLQheud7Ym01BFm9OXQYm1ZELT99pKeqCQtUYYOfH2cTjhRH/QJ+f1BexyUxE4dr9WW+Q47M9L6sDkzeP9mwD/5CWFYYI6/WybCZQDgbsraXY1SwWqPFsmdOiJCWgHiYrvtW8niQljWJbtewIuxW03XY5Suj4plHYq5MYQ=
-env:
-  global:
-    secure: >-
-      KW2d2clI/BoGlnUhEF5w/koaOzm1yHJb9L3ieookCam9cvzyubSmTSCTOW8niIhsdnq9o8Nh5koMRNLg+NWvXKS770cJg3zuT08tuGpya2AYZh5v+dGg+JNtADO1VlRXrKbl1OxmX7RreI7/gsjry74y2kwOEYMkTnSR3CJlVI3yYGzdzry/DsQr8bf39aSIHI4Az3g9uJTWGNaalPpm3fWp1wGhAJvtb1TS/cOZ9TPZ4aWUnmVR5EmSiJSn/P2aDIQnCUBTD+sEuSq6PEsEGSN7r+FnPDI39Ux7If3M5h0XkvdxGALo1yYIRU0l2Tf2/zsNV9fOcTBFt2cVLODm9Y+QTble/BBoouEBHoD5qUxM2w56c4snY65eGy4AEG1afuC04RwHOxYtdqUMfbl2O1zGjWpBGjHDA+MRkuVcBlOxR0Ldtc6MmkXiB/3NJmD1T48B6BUrpbQOIRLKyfGlqCsvoaRyEoI/xiprR3MIyQw0nGBx57X7eh+Kz1DfyHFly8XMox9e0Xbbz346x2DurEQlJ7sAyIn9kFnPic8sE8+fyNuOtMUIjZ3D3cxTC2ioCnNuBGP5m9UhTfGmVkVLmI1Vvw27IAvSDESwfU5C61MmgTJfrHbsRE3GN+oX6WrHDc7nMUmTNZweAs6DTI1aUn/SQWGuKoBKSC3E1sBohrQ=
+  api_key: 3875e42a-527f-4680-88c9-1d31e1566e42
