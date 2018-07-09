@@ -1,1 +1,1 @@
-web: npm start:simple
+web: node server/main.js
