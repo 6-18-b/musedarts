@@ -1,20 +1,23 @@
-dist: trusty
 addons:
   code_climate:
     repo_token: $CODE_CLIMATE
+sudo: false
+notifications:
+  email:
+    on_failure: change
+    on_success: change
 branches:
   only:
     - master
     - stage
     - prod
-notifications:
-  email:
-    on_failure: change
-    on_success: change
-sudo: false
+dist: trusty
 language: node_js
 node_js:
+  - v10
+  - v8
   - v6
+  - v4
 install:
   - yarn install
   - yarn add firebase-ci@0.4.6
@@ -33,4 +36,3 @@ deploy:
   skip_cleanup: true
   provider: heroku
   api_key: 3875e42a-527f-4680-88c9-1d31e1566e42
- : 
